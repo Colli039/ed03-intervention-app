@@ -18,9 +18,14 @@ export const QuestionsProvider = ({ children }) => {
     return questionNumber
   }
 
+  const getSecondChance = () => {
+    return secondChance
+  }
+
   const nextQuestion = () => {
     setQuestionNumber(questionNumber => questionNumber + 1)
     setSecondChance(1)
+    console.log("Second Chance: ",secondChance)
   }
 
   const prevQuestion = () => {
@@ -46,7 +51,8 @@ export const QuestionsProvider = ({ children }) => {
     prevQuestion,
     wrongAnswer,
     getQuestionNumber,
-    loading,setLoading
+    loading,setLoading,
+    secondChance, getSecondChance
   }
 
   return (
