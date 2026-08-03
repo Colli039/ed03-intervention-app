@@ -1,0 +1,8 @@
+.question-card{
+    width: 100%;
+    height: auto;
+    padding: 0.5rem;
+    background-color: white;
+    border: 10px solid pink;
+    border-radius: 5rem;
+}
