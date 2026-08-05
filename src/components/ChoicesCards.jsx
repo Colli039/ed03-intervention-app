@@ -7,13 +7,14 @@ import { useQuestionsContext } from '../context/QuestionsContext'
 //TODO!!
 //MINI QUIZ - Add condition if answer is correct after the playback
 
-function ChoicesCards ({ type, choices, answer = null }) {
+function ChoicesCards ({ type, choices, answer = null, definitions = null}) {
   const { wrongAnswer, secondChance, getSecondChance } = useQuestionsContext()
   const [selectedChoice, setSelectedChoice] = useState('')
   const [disableChoices, setDisableChoices] = useState(false)
   const [wrongChoice, setWrongChoice] = useState(null)
+  const [selectedDefinition, setSelectedDefinition] = useState(null)
 
-  function handleClick (choice) {
+  function handleClick (choice, key) {
     //TODO: Add timeout that changes the button color if it's correct/wrong
     setSelectedChoice(choice)
     console.log(answer, choice, answer!==null)
@@ -33,6 +34,8 @@ function ChoicesCards ({ type, choices, answer = null }) {
           setSelectedChoice(answer), setDisableChoices(true)
         }
       }
+    }else{
+      setSelectedDefinition(definitions[key])
     }
   }
 
@@ -45,7 +48,7 @@ function ChoicesCards ({ type, choices, answer = null }) {
             <button
               key={key}
               type='submit'
-              onClick={() => handleClick(choice)}
+              onClick={() => handleClick(choice, key)}
               className={`
                 choice-btn
                 ${choice === selectedChoice ? 'clicked' : ''
@@ -77,6 +80,7 @@ function ChoicesCards ({ type, choices, answer = null }) {
           <DefinitionCard
             videoName='video-sample.png'
             choice={selectedChoice}
+            definition={selectedDefinition}
           />
         )}
       </div>
