@@ -22,6 +22,9 @@
 .choice-btn:hover{
     background-color: lightgoldenrodyellow;
 }
+.choice-btn.clicked{
+    background-color: gold;
+}
 .mini-video-card.active{
     height: 40%;
     width: 100%;
@@ -31,4 +34,14 @@
     height: 40%;
     width: 100%;
     background-color: paleturquoise;
+}
+.choice-btn.disabled{
+    background-color: grey;
+    cursor: not-allowed;
+}
+.choice-btn.correct{
+    background-color: green !important;
+}
+.choice-btn.wrong{
+    background-color: palevioletred !important;
 }

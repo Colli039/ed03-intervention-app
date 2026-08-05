@@ -55,12 +55,12 @@ function MiniQuiz () {
       ) : (
         <div className='content'>
           <QuestionCard question={questionSet?.question} />
+          <div className='second-chances'>Second chance left: {secondChance}</div>
           <ChoicesCards
             type='mini-quiz'
             answer={questionSet?.answer}
             choices={questionSet?.choices}
           />
-          <div className='second-chances'>Second chance left: {secondChance}</div>
         </div>
       )}
       {questionSet?.id > 2 ? (
