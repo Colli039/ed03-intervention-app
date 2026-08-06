@@ -2,7 +2,7 @@
 import { useNavigate } from 'react-router-dom'
 import QuestionCard from '../components/QuestionCard'
 import ChoicesCards from '../components/ChoicesCards'
-import { getQuestions, getTrickyWords } from '../services/api'
+import { getTrickyWords } from '../services/api'
 import { useState, useEffect } from 'react'
 import { useQuestionsContext } from '../context/QuestionsContext'
 
@@ -15,10 +15,8 @@ function TrickyWords () {
     nextQuestion,
     questionNumber,
     questionSet,
-    setQuestionSet,
-    getQuestionNumber
+    setQuestionSet
   } = useQuestionsContext()
-  console.log(questionNumber)
 
   useEffect(() => {
     console.log('Use Effect')
