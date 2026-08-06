@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react'
 import { useQuestionsContext } from '../context/QuestionsContext'
 
 function TrickyWords () {
-  console.log('Component rendered')
   const navigate = useNavigate()
   const {
     loading,
@@ -50,7 +49,7 @@ function TrickyWords () {
       ) : (
         <div className='content'>
           <QuestionCard question={questionSet?.question} />
-          <ChoicesCards type='tricky-words' choices={questionSet?.choices} />
+          <ChoicesCards type='tricky-words' choices={questionSet?.choices} definitions={questionSet?.definitions} />
         </div>
       )}
 
