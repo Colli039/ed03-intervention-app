@@ -8,7 +8,7 @@ import { useQuestionsContext } from '../context/QuestionsContext'
 //MINI QUIZ - Add condition if answer is correct after the playback
 
 function ChoicesCards ({ type, choices, answer = null }) {
-  const { wrongAnswer, secondChance, getSecondChance } = useQuestionsContext()
+  const { wrongAnswer, secondChance, getSecondChance, addScore, setQuestionNumber } = useQuestionsContext()
   const [selectedChoice, setSelectedChoice] = useState('')
   const [disableChoices, setDisableChoices] = useState(false)
   const [wrongChoice, setWrongChoice] = useState(null)
@@ -19,6 +19,7 @@ function ChoicesCards ({ type, choices, answer = null }) {
     console.log(answer, choice, answer!==null)
     if (answer!==null) {
       if (choice == answer) {
+        addScore()
         //Add timeout here before disabling choices
         setDisableChoices(true)
       } else {
