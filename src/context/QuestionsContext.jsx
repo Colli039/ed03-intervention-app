@@ -13,13 +13,15 @@ export const QuestionsProvider = ({ children }) => {
   const [questionNumber, setQuestionNumber] = useState(0)
   const [selectedChoice, setSelectedChoice] = useState(null)
   const [questionSet, setQuestionSet] = useState([])
+  const [score, setScore] = useState(0)
 
-  const getQuestionNumber = () => {
-    return questionNumber
+  const getScore = () => {
+    return score;
   }
 
-  const getSecondChance = () => {
-    return secondChance
+  const addScore = () => {
+    const newScore = score + 1
+    setScore(newScore)
   }
 
   const nextQuestion = () => {
@@ -50,9 +52,12 @@ export const QuestionsProvider = ({ children }) => {
     nextQuestion,
     prevQuestion,
     wrongAnswer,
-    getQuestionNumber,
     loading,setLoading,
-    secondChance, getSecondChance
+    secondChance,
+    setQuestionNumber,
+    addScore,
+    score,
+    setScore
   }
 
   return (
