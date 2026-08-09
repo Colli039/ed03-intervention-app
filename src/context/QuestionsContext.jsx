@@ -11,23 +11,38 @@ export const QuestionsProvider = ({ children }) => {
   const [secondChance, setSecondChance] = useState(1)
   const [testType, setTestType] = useState('')
   const [questionNumber, setQuestionNumber] = useState(0)
-  const [selectedChoice, setSelectedChoice] = useState(null)
+  const [selectedChoice, setSelectedChoice] = useState('')
   const [questionSet, setQuestionSet] = useState([])
+  const [quizSet, setQuizSet] = useState(0)
   const [score, setScore] = useState(0)
+  const [disableChoices, setDisableChoices] = useState(false)
 
   const getScore = () => {
     return score;
   }
 
   const addScore = () => {
-    const newScore = score + 1
-    setScore(newScore)
+    // const newScore = score + 1
+    setScore(score => score + 1)
   }
 
   const nextQuestion = () => {
+    resetChoices()
     setQuestionNumber(questionNumber => questionNumber + 1)
+  }
+
+  const nextSet = () => {
+    resetChoices()
+    setQuestionNumber(0)
+    setQuizSet(quizSet => quizSet+1)
+  }
+
+  const resetChoices = () => {
+    console.log('reset choices');
+    
     setSecondChance(1)
-    console.log("Second Chance: ",secondChance)
+    setSelectedChoice('')
+    setDisableChoices(false)
   }
 
   const prevQuestion = () => {
@@ -45,19 +60,26 @@ export const QuestionsProvider = ({ children }) => {
     return true
   }
 
+
   const value = {
     questionNumber,
     questionSet,
     setQuestionSet,
     nextQuestion,
-    prevQuestion,
+    prevQuestion,setQuestionNumber,
     wrongAnswer,
     loading,setLoading,
     secondChance,
     setQuestionNumber,
     addScore,
     score,
-    setScore
+    setScore,
+    quizSet,
+    setQuizSet,disableChoices,
+    setDisableChoices,
+    selectedChoice, setSelectedChoice,
+    nextSet,
+    resetChoices
   }
 
   return (

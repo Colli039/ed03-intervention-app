@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import QuestionCard from '../components/QuestionCard'
 import ChoicesCards from '../components/ChoicesCards'
-import { getQuizQuestions, getQuizSetSize } from '../services/api'
+import { getQuizSetSize, getQuestionSet, getSetSize } from '../services/api'
 import { useState, useEffect } from 'react'
 import { useQuestionsContext } from '../context/QuestionsContext'
 
@@ -17,39 +17,56 @@ function MiniQuiz () {
     secondChance,
     setQuestionNumber,
     setScore,
-    score
+    score,
+    quizSet,
+    setQuizSet,
+    setDisableChoices,
+    selectedChoice,
+    setSelectedChoice,
+    nextSet,
+    resetChoices
   } = useQuestionsContext()
-  console.log(questionNumber)
+
+  const quizSetLength = getSetSize()
 
   useEffect(() => {
     const loadQuestionSet = async () => {
       try {
-        const data = await getQuizQuestions(questionNumber)
-        length = getQuizSetSize()-1
+        resetChoices()
+        const data = await getQuestionSet(quizSet, questionNumber)
+
+        length = getQuizSetSize() //quiz length
         setQuestionSet(data)
       } catch (err) {
         console.log(err)
         // setError("Failed to load questions")
       } finally {
         setLoading(false)
-        console.log(score)
-        console.log("QUESTION SET NUMBER",questionSet?.id > length, length )
+        console.log('QUESTION SET NUMBER', questionSet?.id > length, length)
       }
     }
     loadQuestionSet()
-  }, [])
+  }, [quizSet, questionNumber])
 
-  const handleNext = e => {
+  const handleNextSet = e => {
     e.preventDefault()
-    nextQuestion()
+    nextSet()
     navigate('/story-time')
+  }
+
+  const handleNextQuestion = e => {
+    // setQuestionNumber(0) //set loading to true
+    nextQuestion()
+    navigate('/mini-quiz')
   }
   const handleHome = e => {
     e.preventDefault()
     setScore(0)
     setQuestionNumber(0)
+    resetChoices()
     navigate('/')
   }
+
 
   return (
     <div className='body'>
@@ -58,9 +75,11 @@ function MiniQuiz () {
         <div className='loading'>Loading...</div>
       ) : (
         <div className='content'>
-          <div className="scorecard">Score: {score}</div>
+          <div className='scorecard'>Score: {score}</div>
           <QuestionCard question={questionSet?.question} />
-          <div className='second-chances'>Second chance left: {secondChance}</div>
+          <div className='second-chances'>
+            Second chance left: {secondChance}
+          </div>
           <ChoicesCards
             type='mini-quiz'
             answer={questionSet?.answer}
@@ -68,13 +87,27 @@ function MiniQuiz () {
           />
         </div>
       )}
-      {questionNumber < length ? (
-        <button type='button' onClick={handleNext} className='next-btn'>
-          Story Time
-        </button>
+      {!(quizSet == quizSetLength) ? (
+        questionNumber < length - 1 ? (
+          <button
+            type='button'
+            onClick={handleNextQuestion}
+            className='next-btn'
+          >
+            Next Question
+          </button>
+        ) : questionNumber < length && quizSet + 1 == quizSetLength ? (
+          <button type='button' onClick={handleHome} className='next-btn'>
+            Home
+          </button>
+        ) : (
+          <button type='button' onClick={handleNextSet} className='next-btn'>
+            Next Story
+          </button>
+        )
       ) : (
         <button type='button' onClick={handleHome} className='next-btn'>
-          Home
+          Home 2
         </button>
       )}
     </div>

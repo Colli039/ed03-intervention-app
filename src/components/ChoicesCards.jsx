@@ -7,18 +7,29 @@ import { useQuestionsContext } from '../context/QuestionsContext'
 //TODO!!
 //MINI QUIZ - Add condition if answer is correct after the playback
 
-function ChoicesCards ({ type, choices, answer = null, definitions = null}) {
-  const { wrongAnswer, secondChance, getSecondChance, addScore, setQuestionNumber } = useQuestionsContext()
-  const [selectedChoice, setSelectedChoice] = useState('')
-  const [disableChoices, setDisableChoices] = useState(false)
+function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
+  const {
+    wrongAnswer,
+    secondChance,
+    getSecondChance,
+    addScore,
+    setQuestionNumber,
+    disableChoices,
+    setDisableChoices,
+    selectedChoice,
+    setSelectedChoice,
+    resetChoices
+  } = useQuestionsContext()
+
   const [wrongChoice, setWrongChoice] = useState(null)
   const [selectedDefinition, setSelectedDefinition] = useState(null)
+  const [videoChoice, setVideoChoice] = useState('');
 
   function handleClick (choice, key) {
-    //TODO: Add timeout that changes the button color if it's correct/wrong
     setSelectedChoice(choice)
-    console.log(answer, choice, answer!==null)
-    if (answer!==null) {
+    setVideoChoice(choice)
+    console.log(choice, selectedChoice, selectedChoice==answer)
+    if (answer !== null) {
       if (choice == answer) {
         addScore()
         //Add timeout here before disabling choices
@@ -35,7 +46,7 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null}) {
           setSelectedChoice(answer), setDisableChoices(true)
         }
       }
-    }else{
+    } else {
       setSelectedDefinition(definitions[key])
     }
   }
@@ -52,10 +63,11 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null}) {
               onClick={() => handleClick(choice, key)}
               className={`
                 choice-btn
-                ${choice === selectedChoice ? 'clicked' : ''
-                }
+                ${choice === videoChoice ? 'clicked' : ''}
                 ${
-                  choice === selectedChoice && choice !== answer && answer !== null
+                  choice === videoChoice &&
+                  choice !== answer &&
+                  answer !== null
                     ? 'wrong'
                     : disableChoices && choice === answer
                     ? 'correct'
@@ -71,15 +83,14 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null}) {
           )
         })}
       </div>
-      <div className={`display-card ${selectedChoice ? 'active' : ''}`}>
+      <div className={`display-card ${videoChoice ? 'active' : ''}`}>
         {/* Video display if mini quiz */}
-        {selectedChoice && type == 'mini-quiz' && (
-          <MiniVideoCard videoName='video-sample.png' choice={selectedChoice} />
+        {selectedChoice!='' && type == 'mini-quiz' && (
+          <MiniVideoCard videoName='video-sample.png' choice={videoChoice} />
         )}
         {/* Definintion display if tricky words */}
-        {selectedChoice && type == 'tricky-words' && (
+        {selectedChoice!='' && type == 'tricky-words' && (
           <DefinitionCard
-            videoName='video-sample.png'
             choice={selectedChoice}
             definition={selectedDefinition}
           />
