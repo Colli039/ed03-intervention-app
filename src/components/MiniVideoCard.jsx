@@ -3,6 +3,9 @@ import '../css/mini-video-card.css'
 function MiniVideoCard({videoName, choice}){
     const imageUrl = new URL(`../assets/${videoName}`, import.meta.url).href
 
+    console.log(choice);
+    
+
     return(
         <div className="mini-video-card">
             {choice}
