@@ -1,4 +1,4 @@
-import '../css/Home.css'
+import '../css/home.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -19,7 +19,7 @@ function Home () {
     <div className='home'>
       <h1 className='header'>Learning From A Screen</h1>
       <h3 className='subtitle'>An ED03 Intervention App</h3>
-      <button type="submit" onClick={handleClick} className='start-btn'>
+      <button className='start-btn' type="submit" onClick={handleClick} className='start-btn'>
         Start!
       </button>
     </div>
