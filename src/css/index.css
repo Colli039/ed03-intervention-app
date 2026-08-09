@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=National+Park:wght@200..800&family=Viga&display=swap');
+
 :root {
+  margin:0;
   --text: #6b6375;
   --text-h: #08060d;
-  --bg: #fff;
+  --bg: lightblue;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -11,9 +14,9 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --sans: 'National Park', 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Coiny', 'Segoe UI', Roboto, sans-serif;
+  --mono: 'National Park', Consolas, monospace;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
@@ -52,15 +55,30 @@
 
 body {
   margin: 0;
+  --size: 125px;
+
+  background-image:
+    linear-gradient(45deg, #1256c4 25%, transparent 25%),
+    linear-gradient(-45deg, #1256c4 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1256c4 75%),
+    linear-gradient(-45deg, transparent 75%, #1256c4 75%);
+    
+  background-color: #266dcd;
+  background-size: var(--size) var(--size);
+  background-position:
+    0 0,
+    0 calc(var(--size) / 2),
+    calc(var(--size) / 2) calc(var(--size) / -2),
+    calc(var(--size) / -2) 0;
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
+  min-width: 100%;
+  margin: 0;
   text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  min-height: 100vh;
+  height: calc(100vh - 2.5rem);
+  padding:0;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -69,6 +87,7 @@ body {
 h1,
 h2 {
   font-family: var(--heading);
+  text-transform: uppercase;
   font-weight: 500;
   color: var(--text-h);
 }
@@ -93,19 +112,4 @@ h2 {
 }
 p {
   margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }
