@@ -11,6 +11,7 @@ export const QuestionsProvider = ({ children }) => {
   const [secondChance, setSecondChance] = useState(1)
   const [testType, setTestType] = useState('')
   const [questionNumber, setQuestionNumber] = useState(0)
+  const [quizQuestionNumber, setQuizQuestionNumber] = useState(0)
   const [selectedChoice, setSelectedChoice] = useState('')
   const [questionSet, setQuestionSet] = useState([])
   const [quizSet, setQuizSet] = useState(0)
@@ -34,6 +35,7 @@ export const QuestionsProvider = ({ children }) => {
   const nextSet = () => {
     resetChoices()
     setQuestionNumber(0)
+    setQuizQuestionNumber(quizQuestionNumber => quizQuestionNumber+1)
     setQuizSet(quizSet => quizSet+1)
   }
 
@@ -79,7 +81,8 @@ export const QuestionsProvider = ({ children }) => {
     setDisableChoices,
     selectedChoice, setSelectedChoice,
     nextSet,
-    resetChoices
+    resetChoices,
+    quizQuestionNumber
   }
 
   return (

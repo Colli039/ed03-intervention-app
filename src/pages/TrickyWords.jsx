@@ -12,16 +12,16 @@ function TrickyWords () {
     loading,
     setLoading,
     nextQuestion,
-    questionNumber,
+    quizQuestionNumber,
     questionSet,
     setQuestionSet
   } = useQuestionsContext()
 
   useEffect(() => {
-    console.log('Use Effect')
+    console.log(quizQuestionNumber)
     const loadQuestionSet = async () => {
       try {
-        const data = await getTrickyWords(questionNumber)
+        const data = await getTrickyWords(quizQuestionNumber)
         setQuestionSet(data)
         // setQuestion(questionSet)
         // console.log(questionSet.question)
