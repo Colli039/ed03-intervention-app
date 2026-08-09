@@ -17,6 +17,7 @@ export const QuestionsProvider = ({ children }) => {
   const [quizSet, setQuizSet] = useState(0)
   const [score, setScore] = useState(0)
   const [disableChoices, setDisableChoices] = useState(false)
+  const [title, setTitle] = useState('')
 
   const getScore = () => {
     return score;
@@ -62,7 +63,6 @@ export const QuestionsProvider = ({ children }) => {
     return true
   }
 
-
   const value = {
     questionNumber,
     questionSet,
@@ -82,7 +82,8 @@ export const QuestionsProvider = ({ children }) => {
     selectedChoice, setSelectedChoice,
     nextSet,
     resetChoices,
-    quizQuestionNumber
+    quizQuestionNumber,
+    title, setTitle
   }
 
   return (
