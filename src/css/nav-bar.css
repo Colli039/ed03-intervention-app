@@ -1,11 +1,9 @@
 .navbar {
-  background-color: #000000;
   padding: 1rem 2rem;
   position:absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
@@ -26,7 +24,9 @@
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #fcc751;
+  color: #fff;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
