@@ -1,0 +1,29 @@
+.definition-card{
+    width: 20rem;
+    /* background-color: aliceblue; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* position: relative; */
+}
+.term{
+    font-family: --var(mono);
+    font-weight: 600;
+    font-size: 25px;
+    /* height: 2rem; */
+    padding: 1rem;
+}
+.definition{
+    font-family: --var(sans);
+    /* font-weight: 600; */
+    font-size: 22px;
+    /* position: relative; */
+}
+.background-img{
+    position: absolute;
+    z-index: -1;
+    top: -5rem;
+    left:50rem;
+    width: 60rem;
+}

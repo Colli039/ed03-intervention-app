@@ -61,7 +61,7 @@ const questions = [
 const trickyWords = [
   {
     id: 0,
-    question: '1 Which words do you find difficult to understand??',
+    question: 'Which words do you find difficult to understand?',
     choices: ['Understand', 'Coalesce', 'Revere', 'Melancholy'],
     definitions: [
       'Interpret or view (something) in a particular way.',
@@ -72,8 +72,8 @@ const trickyWords = [
   },
   {
     id: 1,
-    question: '2 Which words do you find difficult to understand??',
-    choices: ['Understand', 'Coalesce', 'Revere', 'Melancholy'],
+    question: 'Which words do you find difficult to understand?',
+    choices: ['U2nderstand', 'Coalesce', 'Revere', 'Melancholy'],
     definitions: [
       'Interpret or view (something) in a particular way.',
       'Come together to form one mass or whole.',
@@ -83,8 +83,8 @@ const trickyWords = [
   },
   {
     id: 2,
-    question: '3 Which words do you find difficult to understand??',
-    choices: ['Understand', 'Coalesce', 'Revere', 'Melancholy'],
+    question: 'Which words do you find difficult to understand??',
+    choices: ['U3nderstand', 'Coalesce', 'Revere', 'Melancholy'],
     definitions: [
       'Interpret or view (something) in a particular way.',
       'Come together to form one mass or whole.',
@@ -94,8 +94,8 @@ const trickyWords = [
   },
   {
     id: 3,
-    question: '4 Which words do you find difficult to understand??',
-    choices: ['Understand', 'Coalesce', 'Revere', 'Melancholy'],
+    question: 'Which words do you find difficult to understand?',
+    choices: ['Underst4and', 'Coalesce', 'Revere', 'Melancholy'],
     definitions: [
       'Interpret or view (something) in a particular way.',
       'Come together to form one mass or whole.',
