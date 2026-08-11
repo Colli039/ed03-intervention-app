@@ -1,4 +1,3 @@
-// import "../css/tricky-words.css"
 import '../css/tricky-words.css'
 import { useNavigate } from 'react-router-dom'
 import QuestionCard from '../components/QuestionCard'

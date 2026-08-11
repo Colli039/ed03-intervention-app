@@ -1,36 +1,52 @@
-.tricky-words-body{
+.mini-quiz-body{
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    background-color: #1ca379;
+    background-color: #b18dff;
     padding-top: 3rem;
 }
-.question-components{
+.quiz-question-components{
     width: 80vw;
     position: relative;
     z-index: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 1.5rem;
+    margin: 0;
 }
-.heading{
+.quiz-heading{
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #fff;
-    margin-bottom: 1em;
+    margin: 0;
 }
-.heading-text{
+.quiz-heading-text{
     color: #fff;
     padding-top: 0.5em;
     margin: 0;
 }
 .heading-logo{
     width: 4em;
+}
+.score-card{
+    font-size: 24px;
+    padding-top: 1.1em;
+}
+.second-chances{
+    padding: 1em;
+    display: flex;
+    flex: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+.heart-logo{
+    width: 40px;
+    margin-left: 0.5em;
 }
