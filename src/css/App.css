@@ -2,3 +2,17 @@
   height: 100vh;
   align-items: center;
 }
+
+.next-btn{
+    margin: 1em;
+    padding: 0.5em;
+    width:10%;
+    border-radius: 10px;
+    font-family: var(--mono);
+    font-size:20px;
+}
+.next-btn:hover{
+    background-color: #fcc751;
+    color: #fff;
+    cursor:pointer;
+}
