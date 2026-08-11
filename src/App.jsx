@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, useLocation, Route } from 'react-router-dom'
 import './css/App.css'
 import Home from './pages/Home'
 import StoryTime from './pages/StoryTime'
@@ -10,9 +10,10 @@ import { QuestionsProvider } from './context/QuestionsContext'
 import { VideoInfoProvider } from './context/VideoContext'
 
 function App () {
+  const location = useLocation()
   return (
     <QuestionsProvider>
-      <NavBar />
+      {!(location.pathname==='/') ? <NavBar /> : ''}
       <main className='main-content'>
         <VideoInfoProvider>
           <Routes>
