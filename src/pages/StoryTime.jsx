@@ -2,20 +2,24 @@ import { useNavigate } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
 import '../css/story-time.css'
 import logo from '../assets/story-time-logo.svg'
-import { getSetTitle } from '../services/api'
+import { getSetTitle, getStoryUrl } from '../services/api'
 import { useQuestionsContext } from '../context/QuestionsContext'
+import { useVideoContext } from '../context/VideoContext'
 import { useState, useEffect } from 'react'
 
 function StoryTime () {
   const navigate = useNavigate()
 
   const { title, setTitle, quizQuestionNumber, setQuestionSet } = useQuestionsContext()
+  const { isVideoEnded, videoUrl, setVideoUrl} = useVideoContext()
 
   useEffect(() => {
     const loadResources = async () => {
       try {
         const title = await getSetTitle(quizQuestionNumber)
+        const url = await getStoryUrl(quizQuestionNumber) 
         setTitle(title)
+        setVideoUrl(url)
       } catch (err) {
         console.log(err)
         // setError("Failed to load questions")
@@ -24,7 +28,7 @@ function StoryTime () {
       }
     }
     loadResources()
-  }, [title])
+  }, [quizQuestionNumber])
 
   const handleNext = e => {
     e.preventDefault()
@@ -34,12 +38,12 @@ function StoryTime () {
   return (
     <div className='story-content'>
       <img className='logo' src={logo} alt='' />
-      {/* <div className='story-header'> */}
+      <div className='story-header'>
         <h1 className='story-header-text'>Story Time:</h1>
         <h3 className="story-title">{title}</h3>
-      {/* </div> */}
+      </div>
       
-      <VideoCard video='video!!' />
+      <VideoCard />
       <button type='button' onClick={handleNext} className='next-btn'>
         Tricky Words
       </button>

@@ -1,7 +1,5 @@
 .card{
-    padding: 1rem;
-    background-color: powderblue;
-    width: 100%;
+    width: auto;
     height: 50vh;
     vertical-align: middle;
     display: flex;
@@ -12,10 +10,10 @@
     align-content: center;
 }
 .video-playback{
-    border-radius: 1rem;
+    border-radius: 10px;
     border: 10px solid;
-    border-color: pink;
-    width: 100%;
+    border-color: #fff;
+    width: auto;
     height: 100%;
     background: white;
 }

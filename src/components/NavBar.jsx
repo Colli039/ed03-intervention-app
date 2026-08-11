@@ -13,7 +13,7 @@ function NavBar () {
   return (
     <nav className='navbar'>
       <div className='navbar-brand'>
-        <button type='button' onClick={handleHome} className='next-btn'>
+        <button type='button' onClick={handleHome} className='start-btn'>
           Home
         </button>
       </div>

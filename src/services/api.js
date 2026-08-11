@@ -116,6 +116,7 @@ const trickyWords = [
   }
 ]
 const setTitles = ['Two Friends', 'Plants Need Water', 'The Lost Fisherman']
+const storyUrl = ['video-sample.mp4','video-sample-2.mp4','video-sample-3.mp4']
 const quizQuestions = {
   0: [
     //Question Set 1
@@ -323,9 +324,9 @@ export const getQuestionSet = (index, questionId) => {
 }
 
 export const getSetTitle = questionId => {
-  console.log(setTitles)
-
-  console.log(setTitles[questionId])
-
   return setTitles[questionId]
+}
+
+export const getStoryUrl = questionId => {
+  return storyUrl[questionId]
 }
