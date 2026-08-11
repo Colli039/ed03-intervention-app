@@ -23,12 +23,12 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
 
   const [wrongChoice, setWrongChoice] = useState(null)
   const [selectedDefinition, setSelectedDefinition] = useState(null)
-  const [videoChoice, setVideoChoice] = useState('');
+  const [videoChoice, setVideoChoice] = useState('')
 
   function handleClick (choice, key) {
     setSelectedChoice(choice)
     setVideoChoice(choice)
-    console.log(choice, selectedChoice, selectedChoice==answer)
+    console.log(choice, selectedChoice, selectedChoice == answer)
     if (answer !== null) {
       if (choice == answer) {
         addScore()
@@ -54,20 +54,19 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
   return (
     <>
       <div className='choices-body'>
-        {choices.map((choice, key) => {
-          return (
-            //button
-            <button
-              key={key}
-              type='submit'
-              onClick={() => handleClick(choice, key)}
-              className={`
+        <div className={`choices-content ${videoChoice ? 'show-side' : ''}`}>
+          {choices.map((choice, key) => {
+            return (
+              //button
+              <button
+                key={key}
+                type='submit'
+                onClick={() => handleClick(choice, key)}
+                className={`
                 choice-btn
                 ${choice === videoChoice ? 'clicked' : ''}
                 ${
-                  choice === videoChoice &&
-                  choice !== answer &&
-                  answer !== null
+                  choice === videoChoice && choice !== answer && answer !== null
                     ? 'wrong'
                     : disableChoices && choice === answer
                     ? 'correct'
@@ -76,25 +75,26 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
                     : ''
                 }
               `}
-              disabled={disableChoices}
-            >
-              {choice}
-            </button>
-          )
-        })}
-      </div>
-      <div className={`display-card ${videoChoice ? 'active' : ''}`}>
-        {/* Video display if mini quiz */}
-        {selectedChoice!='' && type == 'mini-quiz' && (
-          <MiniVideoCard videoName='video-sample.png' choice={videoChoice} />
-        )}
-        {/* Definintion display if tricky words */}
-        {selectedChoice!='' && type == 'tricky-words' && (
-          <DefinitionCard
-            choice={selectedChoice}
-            definition={selectedDefinition}
-          />
-        )}
+                disabled={disableChoices}
+              >
+                {choice}
+              </button>
+            )
+          })}
+        </div>
+        <div className={`display-card ${videoChoice ? 'active' : ''}`}>
+          {/* Video display if mini quiz */}
+          {selectedChoice != '' && type == 'mini-quiz' && (
+            <MiniVideoCard videoName='video-sample.png' choice={videoChoice} />
+          )}
+          {/* Definintion display if tricky words */}
+          {selectedChoice != '' && type == 'tricky-words' && (
+            <DefinitionCard
+              choice={selectedChoice}
+              definition={selectedDefinition}
+            />
+          )}
+        </div>
       </div>
     </>
   )
