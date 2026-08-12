@@ -7,8 +7,9 @@ function QuestionCard({question}){
     const {
         selectedChoice, setSelectedChoice
       } = useQuestionsContext()
+
     return(
-        <div className={`question-card ${selectedChoice ? 'selected':''}`}>
+        <div className={`question-card ${selectedChoice !== '' ? 'selected':''}`}>
             {question}
         </div>
     )

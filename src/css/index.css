@@ -113,3 +113,23 @@ h2 {
 p {
   margin: 0;
 }
+
+.animate-pop {
+  animation: logoPop 0.5s ease-out;
+}
+
+@keyframes logoPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

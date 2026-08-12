@@ -7,6 +7,7 @@ import { useQuestionsContext } from '../context/QuestionsContext'
 import '../css/mini-quiz.css'
 import logo from '../assets/mini-quiz-logo.svg'
 import heartLogo from '../assets/heart-logo.svg'
+import heartBlankLogo from '../assets/heart-blank-logo.svg'
 
 function MiniQuiz () {
   const navigate = useNavigate()
@@ -90,7 +91,11 @@ function MiniQuiz () {
             />
             <div className='second-chances'>
               Second chance left:
-              <img className='heart-logo' src={heartLogo} alt='' />
+              {secondChance > 0 ? (
+                <img key="heart" className='heart-logo animate-pop' src={heartLogo} alt='' />
+              ) : (
+                <img key="heart-blank" className='heart-logo animate-pop' src={heartBlankLogo} alt='' />
+              )}
             </div>
           </div>
         </div>

@@ -1,15 +1,14 @@
 import '../css/mini-video-card.css'
+// import imageUrl from '../assets/gardening-too-long.gif'
 
-function MiniVideoCard({videoName, choice}){
-    const imageUrl = new URL(`../assets/${videoName}`, import.meta.url).href
-
-    console.log(choice);
-    
-
+function MiniVideoCard({choice}){
+    //TODO: Change to object URL soon
+    const imgUrl = new URL(`../assets/${choice}.gif`, import.meta.url).href
+   
     return(
         <div className="mini-video-card">
             {choice}
-            <img src={imageUrl}></img>
+            <img className="answer-result" src={imgUrl}></img>
         </div>
     )
 }
