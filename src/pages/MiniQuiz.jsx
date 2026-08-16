@@ -28,13 +28,15 @@ function MiniQuiz () {
     selectedChoice,
     setSelectedChoice,
     nextSet,
-    resetChoices
+    resetChoices,
+    resetGame
   } = useQuestionsContext()
 
   const quizSetLength = getSetSize()
 
   useEffect(() => {
     const loadQuestionSet = async () => {
+      setLoading(true);
       try {
         resetChoices()
         const data = await getQuestionSet(quizSet, questionNumber)
@@ -74,7 +76,9 @@ function MiniQuiz () {
   return (
     <div className='mini-quiz-body'>
       {loading ? (
-        <div className='loading'>Loading...</div>
+        <div className='loading'>
+          <div className='loader'></div>
+        </div>
       ) : (
         <div className='content'>
           <img className='logo' src={logo} alt='' />
@@ -92,9 +96,19 @@ function MiniQuiz () {
             <div className='second-chances'>
               Second chance left:
               {secondChance > 0 ? (
-                <img key="heart" className='heart-logo animate-pop' src={heartLogo} alt='' />
+                <img
+                  key='heart'
+                  className='heart-logo animate-pop'
+                  src={heartLogo}
+                  alt=''
+                />
               ) : (
-                <img key="heart-blank" className='heart-logo animate-pop' src={heartBlankLogo} alt='' />
+                <img
+                  key='heart-blank'
+                  className='heart-logo animate-pop'
+                  src={heartBlankLogo}
+                  alt=''
+                />
               )}
             </div>
           </div>
