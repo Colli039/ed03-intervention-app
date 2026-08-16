@@ -1,9 +1,16 @@
 import { useVideoContext } from '../context/VideoContext'
 import '../css/video-card.css'
 
-function VideoCard () {
+function VideoCard ({storyTitle}) {
+  function toKebabCase(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
   const { isVideoEnded, videoUrl, setIsVideoEnded } = useVideoContext()
-  const storyUrl = new URL(`../assets/${videoUrl}`, import.meta.url).href
+  const storyUrl = `https://ed03-intervention-resources.s3.us-east-2.amazonaws.com/stories/${toKebabCase(storyTitle)}.mp4`
 
   const handleVideoEnd = () => {
     console.log('Video ended!')

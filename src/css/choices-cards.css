@@ -27,13 +27,14 @@
     font-family: --var(mono);
     font-weight: 600;
     font-size: 25px;
+    margin: 0.5em;
 }
 .choice-btn:hover{
     background-color: #dae8ff;
 }
 .choice-btn.clicked{
     background-color: #1256c4;
-    color:#fff
+    color:#fff;
 }
 .mini-video-card.active{
     height: 40%;
@@ -54,4 +55,7 @@
 }
 .choice-btn.wrong{
     background-color: palevioletred !important;
+}
+.show-side{
+    height: 100%;
 }

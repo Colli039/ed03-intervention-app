@@ -25,6 +25,14 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
   const [selectedDefinition, setSelectedDefinition] = useState(null)
   const [videoChoice, setVideoChoice] = useState('')
 
+  function toKebabCase(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
   function handleClick (choice, key) {
     setSelectedChoice(choice)
     setVideoChoice(choice)
@@ -64,6 +72,7 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
                 onClick={() => handleClick(choice, key)}
                 className={`
                 choice-btn
+                ${choice !== '' ? 'choice-selected' : ''}
                 ${choice === videoChoice ? 'clicked' : ''}
                 ${
                   choice === videoChoice && choice !== answer && answer !== null
@@ -85,7 +94,7 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
         <div className={`display-card ${videoChoice ? 'active' : ''}`}>
           {/* Video display if mini quiz */}
           {selectedChoice != '' && type == 'mini-quiz' && (
-            <MiniVideoCard videoName='video-sample.png' choice={videoChoice} />
+            <MiniVideoCard choice={toKebabCase(videoChoice)} />
           )}
           {/* Definintion display if tricky words */}
           {selectedChoice != '' && type == 'tricky-words' && (
