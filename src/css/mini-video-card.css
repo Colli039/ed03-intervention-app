@@ -1,13 +1,71 @@
-.mini-video-card{
+.mini-video-card {
     width: 20rem;
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+
 }
-.answer-result{
+.answer-result {
     border-radius: 15px;
     position: absolute;
     top: 0;
-    width: 24rem;
+    width: 23rem;
     border: 10px solid #fff;
+    
+    background-color: #1256c4;
+}
+.video-loader {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 65%;
+    width: 100%;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.loading-icon {
+    font-size: 4rem;
+    color: white;
+
+    animation: bounce 0.8s ease-in-out infinite;
+}
+
+.loading-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.hidden-video {
+    opacity: 0;
+}
+
+.answer-result {
+    transition: opacity 0.2s ease-in;
 }

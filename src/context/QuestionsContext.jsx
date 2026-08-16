@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useEffect } from 'react'
+import { getStoryUrl } from '../services/api'
 
 const QuestionsContext = createContext()
 
@@ -19,6 +20,16 @@ export const QuestionsProvider = ({ children }) => {
   const [disableChoices, setDisableChoices] = useState(false)
   const [title, setTitle] = useState('')
 
+  const resetGame = () => {
+  setScore(0)
+  setQuestionNumber(0)
+  setQuizSet(0)
+  // setSelectedChoice('')
+  setDisableChoices(false)
+  setSecondChance(1)
+  setTitle(0)
+  getStoryUrl(0)
+}
   const getScore = () => {
     return score;
   }
@@ -83,7 +94,8 @@ export const QuestionsProvider = ({ children }) => {
     nextSet,
     resetChoices,
     quizQuestionNumber,
-    title, setTitle
+    title, setTitle,
+    resetGame
   }
 
   return (

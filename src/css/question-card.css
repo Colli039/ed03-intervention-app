@@ -12,5 +12,6 @@
     text-align: left;
     padding:0 2em;
     width: 68%;
-    line-height: 1.5;
+    line-height: 1;
+    font-size: 30px;
 }
