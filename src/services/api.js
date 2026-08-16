@@ -115,7 +115,7 @@ const trickyWords = [
     ]
   }
 ]
-const setTitles = ['Two Friends', 'Plants Need Water', 'The Lost Fisherman']
+const setTitles = ['The Two Friends', 'Plants Need Water', 'The Lost Fisherman']
 const storyUrl = ['video-sample.mp4','video-sample-2.mp4','video-sample-3.mp4']
 const quizQuestions = {
   0: [

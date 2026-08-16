@@ -43,7 +43,7 @@ function StoryTime () {
         <h3 className="story-title">{title}</h3>
       </div>
       
-      <VideoCard />
+      <VideoCard storyTitle={title} />
       <button type='button' onClick={handleNext} className='next-btn'>
         Tricky Words
       </button>
