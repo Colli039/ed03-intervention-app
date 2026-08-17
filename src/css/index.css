@@ -55,21 +55,22 @@
 
 body {
   margin: 0;
-  --size: 125px;
+    background-color: #1256c4;
 
-  background-image:
-    linear-gradient(45deg, #1256c4 25%, transparent 25%),
-    linear-gradient(-45deg, #1256c4 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #1256c4 75%),
-    linear-gradient(-45deg, transparent 75%, #1256c4 75%);
-    
-  background-color: #266dcd;
-  background-size: var(--size) var(--size);
-  background-position:
-    0 0,
-    0 calc(var(--size) / 2),
-    calc(var(--size) / 2) calc(var(--size) / -2),
-    calc(var(--size) / -2) 0;
+    background-image:
+        linear-gradient(
+            #266dcd 4px,
+            transparent 4px
+        ),
+        linear-gradient(
+            90deg,
+            #266dcd 4px,
+            transparent 4px
+        );
+
+    background-size: 200px 200px;
+
+    animation: moveGrid 20s linear infinite;
 }
 
 #root {
@@ -132,4 +133,13 @@ p {
     transform: scale(1);
     opacity: 1;
   }
+}
+@keyframes moveGrid {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 200px 200px;
+    }
 }

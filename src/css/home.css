@@ -12,6 +12,7 @@
     margin:0;
     margin-top:10rem;
     padding: 0.5em;
+    animation: popAnimation 0.5s ease-out;
 }
 .subtitle{
     color:#1256c4;
@@ -21,6 +22,10 @@
     font-size: 1.5rem;
     width:30%;
     margin: 0;
+    
+    transform-origin: center center;
+
+    animation: tipWobble 3s ease-in-out infinite;
 }
 .start-btn{
     margin: 1em;
@@ -34,4 +39,48 @@
     background-color: #fcc751;
     color: #fff;
     cursor:pointer;
+}
+@keyframes popAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.25);
+    }
+
+    60% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes tipWobble {
+    0%,
+    70%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    80% {
+        transform: rotate(5deg);
+    }
+
+    85% {
+        transform: rotate(-4deg);
+    }
+
+    90% {
+        transform: rotate(4deg);
+    }
+
+    95% {
+        transform: rotate(-2deg);
+    }
 }
