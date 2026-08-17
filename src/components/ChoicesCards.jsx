@@ -17,23 +17,26 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
     disableChoices,
     setDisableChoices,
     selectedChoice,
-    setSelectedChoice,
-    resetChoices
+    setSelectedChoice
   } = useQuestionsContext()
 
   const [wrongChoice, setWrongChoice] = useState(null)
   const [selectedDefinition, setSelectedDefinition] = useState(null)
   const [videoChoice, setVideoChoice] = useState('')
+  const [videoEnded, setVideoEnded] = useState(false)
+  const [videoPlaying, setVideoPlaying] = useState(false)
 
-  function toKebabCase(text) {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, '')
-    .trim()
-    .replace(/\s+/g, '-');
-}
+  function toKebabCase (text) {
+    return text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '')
+      .trim()
+      .replace(/\s+/g, '-')
+  }
 
   function handleClick (choice, key) {
+    setVideoEnded(false)
+    setVideoPlaying(true)
     setSelectedChoice(choice)
     setVideoChoice(choice)
     console.log(choice, selectedChoice, selectedChoice == answer)
@@ -72,19 +75,25 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
                 onClick={() => handleClick(choice, key)}
                 className={`
                 choice-btn
+                ${videoPlaying && type == 'mini-quiz' ? 'video-playing' : ''}
                 ${choice !== '' ? 'choice-selected' : ''}
                 ${choice === videoChoice ? 'clicked' : ''}
                 ${
-                  choice === videoChoice && choice !== answer && answer !== null
+                  videoEnded &&
+                  choice === videoChoice &&
+                  choice !== answer &&
+                  answer !== null
                     ? 'wrong'
-                    : disableChoices && choice === answer
+                    : videoEnded && choice === answer && disableChoices
                     ? 'correct'
-                    : disableChoices
+                    : videoEnded && disableChoices
                     ? 'disabled'
                     : ''
                 }
               `}
-                disabled={disableChoices}
+                disabled={
+                  disableChoices || (videoPlaying && type == 'mini-quiz')
+                }
               >
                 {choice}
               </button>
@@ -94,7 +103,14 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
         <div className={`display-card ${videoChoice ? 'active' : ''}`}>
           {/* Video display if mini quiz */}
           {selectedChoice != '' && type == 'mini-quiz' && (
-            <MiniVideoCard choice={toKebabCase(videoChoice)} />
+            <MiniVideoCard
+              key={videoChoice}
+              choice={toKebabCase(videoChoice)}
+              onVideoEnd={() => {
+                setVideoEnded(true)
+                setVideoPlaying(false)
+              }}
+            />
           )}
           {/* Definintion display if tricky words */}
           {selectedChoice != '' && type == 'tricky-words' && (

@@ -3,7 +3,7 @@ import '../css/nav-bar.css'
 import { useQuestionsContext } from '../context/QuestionsContext'
 
 function NavBar () {
-  const { resetChoices,setScore, setQuizSet, setQuestionNumber } = useQuestionsContext()
+  const { setScore, setQuizSet, setQuestionNumber } = useQuestionsContext()
   const navigate = useNavigate()
     const handleHome = e => {
     window.location.href = '/';
