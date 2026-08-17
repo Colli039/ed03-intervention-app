@@ -17,24 +17,45 @@
     justify-content: space-evenly;
     align-content: space-around;
 }
-.choice-btn{
+.choice-btn {
     background-color: white;
     padding: 1rem;
     width: 40%;
     border: 0;
     border-radius: 5rem;
-    transition-duration: 0.4s;
-    font-family: --var(mono);
+    transition: all 0.15s ease;
+
+    font-family: var(--mono);
     font-weight: 600;
     font-size: 25px;
     margin: 0.5em;
+
+    box-shadow: 0 6px 0 #b8ccef;
 }
-.choice-btn:hover{
+
+.choice-btn:hover {
     background-color: #dae8ff;
+    cursor: pointer;
 }
-.choice-btn.clicked{
+
+.choice-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #b8ccef;
+}
+.choice-btn.clicked {
     background-color: #1256c4;
-    color:#fff;
+    color: #fff;
+
+    animation: pressIn 0.2s ease-out forwards;
+}
+
+@keyframes pressIn {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(4px);
+    }
 }
 .mini-video-card.active{
     height: 40%;
