@@ -22,8 +22,9 @@
     padding-top: 0.5em;
     margin: 0;
 }
-.logo{
+.story-logo{
     width: 4em;
+    padding-top: 3rem;
 }
 .story-title{
     font-family: var(--sans);
@@ -33,6 +34,6 @@
     margin: 20px;
     padding-top: 0.5em;
 }
-.story-content{
+/* .story-content{
     padding-top: 3rem;
-}
+} */

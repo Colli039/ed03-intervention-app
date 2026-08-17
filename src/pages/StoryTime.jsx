@@ -22,7 +22,6 @@ function StoryTime () {
         setVideoUrl(url)
       } catch (err) {
         console.log(err)
-        // setError("Failed to load questions")
       } finally {
         // setLoading(false)
       }
@@ -37,7 +36,7 @@ function StoryTime () {
 
   return (
     <div className='story-content'>
-      <img className='logo' src={logo} alt='' />
+      <img className='story-logo' src={logo} alt='' />
       <div className='story-header'>
         <h1 className='story-header-text'>Story Time:</h1>
         <h3 className="story-title">{title}</h3>

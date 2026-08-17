@@ -65,12 +65,9 @@ function MiniQuiz () {
     nextQuestion()
     navigate('/mini-quiz')
   }
-  const handleHome = e => {
+  const handleScorePage = e => {
     e.preventDefault()
-    setScore(0)
-    setQuestionNumber(0)
-    resetChoices()
-    navigate('/')
+    navigate('/score')
   }
 
   return (
@@ -124,7 +121,7 @@ function MiniQuiz () {
             Next Question
           </button>
         ) : questionNumber < length && quizSet + 1 == quizSetLength ? (
-          <button type='button' onClick={handleHome} className='next-btn'>
+          <button type='button' onClick={handleScorePage} className='next-btn'>
             Home
           </button>
         ) : (
@@ -133,7 +130,7 @@ function MiniQuiz () {
           </button>
         )
       ) : (
-        <button type='button' onClick={handleHome} className='next-btn'>
+        <button type='button' onClick={handleScorePage} className='next-btn'>
           Home 2
         </button>
       )}

@@ -1,18 +1,23 @@
-.definition-card{
+.definition-card {
     width: 20rem;
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    flex-shrink: 0;
 }
 .term{
-    font-family: --var(mono);
+    font-family: var(--mono);
     font-weight: 600;
-    font-size: 25px;
+    font-size: 30px;
     padding: 1rem;
+    text-decoration: underline;
 }
 .definition{
-    font-family: --var(sans);
+    font-family: var(--sans);
     font-size: 22px;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 .background-img{
     position: absolute;
