@@ -62,56 +62,34 @@ const trickyWords = [
   {
     id: 0,
     question: 'Which words do you find difficult to understand?',
-    choices: ['Understand', 'Coalesce', 'Revere', 'Melancholy'],
+    choices: ['Inseparable', 'Admired', 'Opportunity', 'Delayed'],
     definitions: [
-      'Interpret or view (something) in a particular way.',
-      'Come together to form one mass or whole.',
-      'Feel deep respect or admiration for (something).',
-      'A feeling of pensive sadness, typically with no obvious cause.'
+      'So close that you are almost impossible to separate or split apart.',
+      'Looked at something with pleasure, happiness, or wonder.',
+      'A good chance or moment to do something.',
+      'Put off until later; held back or made to wait.'
     ]
   },
   {
     id: 1,
     question: 'Which words do you find difficult to understand?',
-    choices: ['U2nderstand', 'Coalesce', 'Revere', 'Melancholy'],
+    choices: ['Sprinkler', 'Difference', 'Factory', 'Wilting'],
     definitions: [
-      'Interpret or view (something) in a particular way.',
-      'Come together to form one mass or whole.',
-      'Feel deep respect or admiration for (something).',
-      'A feeling of pensive sadness, typically with no obvious cause.'
+      'A tool used to spray water on plants.',
+      'A change that makes something better or not the same.',
+      'A place where people make things using machines.',
+      'Drooping or bending because a plant needs water.'
     ]
   },
   {
     id: 2,
     question: 'Which words do you find difficult to understand??',
-    choices: ['U3nderstand', 'Coalesce', 'Revere', 'Melancholy'],
+    choices: ['Waded', 'Cane', 'Relieved', 'Wiser'],
     definitions: [
-      'Interpret or view (something) in a particular way.',
-      'Come together to form one mass or whole.',
-      'Feel deep respect or admiration for (something).',
-      'A feeling of pensive sadness, typically with no obvious cause.'
-    ]
-  },
-  {
-    id: 3,
-    question: 'Which words do you find difficult to understand?',
-    choices: ['Underst4and', 'Coalesce', 'Revere', 'Melancholy'],
-    definitions: [
-      'Interpret or view (something) in a particular way.',
-      'Come together to form one mass or whole.',
-      'Feel deep respect or admiration for (something).',
-      'A feeling of pensive sadness, typically with no obvious cause.'
-    ]
-  },
-  {
-    id: 4,
-    question: '5 Which words do you find difficult to understand??',
-    choices: ['Understand', 'Coalesce', 'Revere', 'Melancholy'],
-    definitions: [
-      'Interpret or view (something) in a particular way.',
-      'Come together to form one mass or whole.',
-      'Feel deep respect or admiration for (something).',
-      'A feeling of pensive sadness, typically with no obvious cause.'
+      'Walked through water that isn’t very deep.',
+      'A stick used to help someone walk.',
+      'Feeling calm and happy again after being worried or scared.',
+      'Smarter; knowing more because of an experience.'
     ]
   }
 ]
