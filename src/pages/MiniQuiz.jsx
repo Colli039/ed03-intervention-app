@@ -24,7 +24,7 @@ function MiniQuiz () {
     score,
     quizSet,
     setQuizSet,
-    setDisableChoices,
+    disableChoices,
     selectedChoice,
     setSelectedChoice,
     nextSet,
@@ -48,7 +48,6 @@ function MiniQuiz () {
         // setError("Failed to load questions")
       } finally {
         setLoading(false)
-        console.log('QUESTION SET NUMBER', questionSet?.id > length, length)
       }
     }
     loadQuestionSet()
@@ -121,11 +120,11 @@ function MiniQuiz () {
             Next Question
           </button>
         ) : questionNumber < length && quizSet + 1 == quizSetLength ? (
-          <button type='button' onClick={handleScorePage} className='next-btn'>
+          <button type='button' onClick={handleScorePage} disabled={disableChoices} className='next-btn'>
             Home
           </button>
         ) : (
-          <button type='button' onClick={handleNextSet} className='next-btn'>
+          <button type='button' onClick={handleNextSet} disabled={disableChoices} className='next-btn'>
             Next Story
           </button>
         )

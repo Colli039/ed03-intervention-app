@@ -18,7 +18,6 @@ function VideoCard({ storyTitle }) {
   const storyUrl = `https://ed03-intervention-resources.s3.us-east-2.amazonaws.com/stories/${toKebabCase(storyTitle)}.mp4`
 
   const handleVideoEnd = () => {
-    console.log('Video ended!')
     setIsVideoEnded(true)
   }
 

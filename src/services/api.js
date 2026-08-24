@@ -293,7 +293,6 @@ export const getTrickySetSize = () => {
 }
 
 export const getTrickyWords = questionId => {
-  console.log('API: ', trickyWords[questionId])
   return trickyWords[questionId]
 }
 
