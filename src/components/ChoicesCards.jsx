@@ -4,9 +4,6 @@ import MiniVideoCard from '../components/MiniVideoCard'
 import DefinitionCard from '../components/DefinitionCard'
 import { useQuestionsContext } from '../context/QuestionsContext'
 
-//TODO!!
-//MINI QUIZ - Add condition if answer is correct after the playback
-
 function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
   const {
     wrongAnswer,
@@ -26,6 +23,18 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
   const [videoEnded, setVideoEnded] = useState(false)
   const [videoPlaying, setVideoPlaying] = useState(false)
 
+  const [audio] = useState(() => new Audio())
+
+  function playChoiceAudio (choice) {
+    audio.pause()
+    audio.currentTime = 0
+
+    audio.src = `https://ed03-intervention-resources.s3.us-east-2.amazonaws.com/tricky-words/${choice}.m4a`
+
+    audio.play()
+  }
+
+
   function toKebabCase (text) {
     return text
       .toLowerCase()
@@ -35,11 +44,13 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
   }
 
   function handleClick (choice, key) {
+    type=="tricky-words" ? playChoiceAudio(choice) : ''
+    
     setVideoEnded(false)
     setVideoPlaying(true)
     setSelectedChoice(choice)
     setVideoChoice(choice)
-    console.log(choice, selectedChoice, selectedChoice == answer)
+
     if (answer !== null) {
       if (choice == answer) {
         addScore()

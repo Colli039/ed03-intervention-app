@@ -15,7 +15,8 @@ function TrickyWords () {
     nextQuestion,
     quizQuestionNumber,
     questionSet,
-    setQuestionSet
+    setQuestionSet,
+    disableChoices
   } = useQuestionsContext()
 
   useEffect(() => {

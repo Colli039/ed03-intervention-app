@@ -52,7 +52,6 @@ export const QuestionsProvider = ({ children }) => {
   }
 
   const resetChoices = () => {
-    console.log('reset choices');
     
     setSecondChance(1)
     setSelectedChoice('')

@@ -29,7 +29,6 @@ function Score () {
       const loadResources = async () => {
         try {
           const title = await getSetTitle(0)
-          console.log(title)
           setTitle(title)
         } catch (err) {
           console.log(err)
