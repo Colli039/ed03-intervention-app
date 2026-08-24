@@ -29,7 +29,7 @@ function ChoicesCards ({ type, choices, answer = null, definitions = null }) {
     audio.pause()
     audio.currentTime = 0
 
-    audio.src = `https://ed03-intervention-resources.s3.us-east-2.amazonaws.com/tricky-words/${choice}.m4a`
+    audio.src = `https://ed03-intervention-assets.s3.ap-southeast-1.amazonaws.com/tricky-words/${choice}.m4a`
 
     audio.play()
   }

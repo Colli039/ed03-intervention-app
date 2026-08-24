@@ -7,7 +7,7 @@ function MiniVideoCard ({ choice, onVideoEnd }) {
 
   const videoRef = useRef(null)
 
-  const videoUrl = `https://ed03-intervention-resources.s3.us-east-2.amazonaws.com/${choice}.mp4`
+  const videoUrl = `https://ed03-intervention-assets.s3.ap-southeast-1.amazonaws.com/${choice}.mp4`
 
   useEffect(() => {
     setLoading(true)

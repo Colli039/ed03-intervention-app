@@ -15,7 +15,7 @@ function VideoCard({ storyTitle }) {
 
   const { videoUrl, setIsVideoEnded } = useVideoContext()
 
-  const storyUrl = `https://ed03-intervention-resources.s3.us-east-2.amazonaws.com/stories/${toKebabCase(storyTitle)}.mp4`
+  const storyUrl = `https://ed03-intervention-assets.s3.ap-southeast-1.amazonaws.com/stories/${toKebabCase(storyTitle)}.mp4`
 
   const handleVideoEnd = () => {
     setIsVideoEnded(true)
