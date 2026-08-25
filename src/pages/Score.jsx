@@ -42,7 +42,7 @@ function Score () {
     <div className='score-container'>
       <h1 className='score-header'>Your Final Score:</h1>
       <h3 className='score-number'>{score}</h3>
-      <button className='start-btn' type="submit" onClick={handleHome} className='start-btn'>
+      <button className='start-btn' type="submit" onClick={handleHome}>
         Home
       </button>
     </div>

@@ -7,6 +7,7 @@
     align-items: center;
     background-color: #1256c4;
     /* padding-top: 3rem; */
+    color: #fff;
 }
 .story-header{
     width: 100%;
@@ -14,8 +15,12 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    margin-bottom: 1em;
+    margin-bottom: -1em;
+}
+.story-subtitles{
+    width: 100%;
+    display: flex;
+    padding-bottom: 10em;
 }
 .story-header-text{
     color: #fff;

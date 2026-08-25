@@ -39,7 +39,10 @@ function StoryTime () {
       <img className='story-logo' src={logo} alt='' />
       <div className='story-header'>
         <h1 className='story-header-text'>Story Time:</h1>
-        <h3 className="story-title">{title}</h3>
+        <h3 className="story-title">{title} </h3>
+      </div>
+      <div className="story-subitles">
+        <h3>by Jennet Gardiola Mercado</h3>
       </div>
       
       <VideoCard storyTitle={title} />

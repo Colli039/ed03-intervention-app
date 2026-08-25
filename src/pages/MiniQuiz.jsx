@@ -120,17 +120,17 @@ function MiniQuiz () {
             Next Question
           </button>
         ) : questionNumber < length && quizSet + 1 == quizSetLength ? (
-          <button type='button' onClick={handleScorePage} disabled={disableChoices} className='next-btn'>
-            Home
+          <button type='button' onClick={handleScorePage} className='next-btn'>
+            Complete!
           </button>
         ) : (
-          <button type='button' onClick={handleNextSet} disabled={disableChoices} className='next-btn'>
+          <button type='button' onClick={handleNextSet} className='next-btn'>
             Next Story
           </button>
         )
       ) : (
         <button type='button' onClick={handleScorePage} className='next-btn'>
-          Home 2
+          Home
         </button>
       )}
     </div>

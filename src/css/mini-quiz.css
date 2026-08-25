@@ -1,5 +1,5 @@
 .mini-quiz-body{
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -7,6 +7,7 @@
     align-items: center;
     background-color: #b18dff;
     /* padding-top: 3rem; */
+    overflow: hidden;
 }
 .quiz-question-components{
     width: 80vw;

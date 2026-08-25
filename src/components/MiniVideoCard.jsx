@@ -44,6 +44,7 @@ function MiniVideoCard ({ choice, onVideoEnd }) {
         loop={shouldLoop}
         onCanPlay={() => setLoading(false)}
         onEnded={handleEnded}
+        playbackRate={1.5}
       >
         <source src={videoUrl} type='video/mp4' />
       </video>
